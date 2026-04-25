@@ -1,0 +1,62 @@
+[
+  {
+    "id": "turnip-v26-r8-auto",
+    "name": "Turnip v26.0.0 R8",
+    "variant": "Auto",
+    "gpu": "Adreno 6xx/7xx",
+    "description": "Default Turnip build from K11MCH1 AdrenoToolsDrivers. Recommended first choice for most Adreno devices.",
+    "recommended": true,
+    "downloadUrl": "https://github.com/K11MCH1/AdrenoToolsDrivers/releases/download/v26.0.0-rc08/Turnip_v26.0.0_R8.zip",
+    "sourceUrl": "https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v26.0.0-rc08",
+    "credits": "K11MCH1 / Mesa Turnip contributors",
+    "sizeBytes": 3478359
+  },
+  {
+    "id": "turnip-v26-r8-gmem",
+    "name": "Turnip v26.0.0 R8 GMEM",
+    "variant": "GMEM",
+    "gpu": "Adreno 710/720/7xx",
+    "description": "GMEM variant. Try this if the default driver shows fullscreen artifacts or rendering glitches.",
+    "recommended": false,
+    "downloadUrl": "https://github.com/K11MCH1/AdrenoToolsDrivers/releases/download/v26.0.0-rc08/Turnip_v26.0.0_R8_Gmem.zip",
+    "sourceUrl": "https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v26.0.0-rc08",
+    "credits": "K11MCH1 / Mesa Turnip contributors",
+    "sizeBytes": 3478156
+  },
+  {
+    "id": "turnip-v26-r8-sysmem",
+    "name": "Turnip v26.0.0 R8 SYSMEM",
+    "variant": "SYSMEM",
+    "gpu": "Adreno",
+    "description": "SYSMEM variant for devices or games that behave better without GMEM.",
+    "recommended": false,
+    "downloadUrl": "https://github.com/K11MCH1/AdrenoToolsDrivers/releases/download/v26.0.0-rc08/Turnip_v26.0.0_R8_Sysmem.zip",
+    "sourceUrl": "https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v26.0.0-rc08",
+    "credits": "K11MCH1 / Mesa Turnip contributors",
+    "sizeBytes": 3478168
+  },
+  {
+    "id": "qualcomm-v840",
+    "name": "Qualcomm v840",
+    "variant": "Stock",
+    "gpu": "Adreno 7xx",
+    "description": "Qualcomm stock driver extracted from Meta Ray-Ban Glasses. Use at your own discretion.",
+    "recommended": false,
+    "downloadUrl": "https://github.com/K11MCH1/AdrenoToolsDrivers/releases/download/v840/Qualcomm_840_adpkg.zip",
+    "sourceUrl": "https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v840",
+    "credits": "K11MCH1 / Qualcomm driver package contributors",
+    "sizeBytes": 17385120
+  },
+  {
+    "id": "qualcomm-v837",
+    "name": "Qualcomm v837",
+    "variant": "Stock",
+    "gpu": "Adreno 7xx",
+    "description": "Qualcomm stock driver package for Adreno devices. Use if Turnip is not stable on your phone.",
+    "recommended": false,
+    "downloadUrl": "https://github.com/K11MCH1/AdrenoToolsDrivers/releases/download/v837/Qualcomm_837_adpkg.zip",
+    "sourceUrl": "https://github.com/K11MCH1/AdrenoToolsDrivers/releases/tag/v837",
+    "credits": "K11MCH1 / Qualcomm driver package contributors",
+    "sizeBytes": 12715427
+  }
+]
