@@ -2,16 +2,17 @@
 
 This repository hosts the GPU driver catalog used by EmuCoreV.
 
-`drivers.json` is a generated catalog of Turnip/Mesa Adreno driver packages from upstream GitHub releases. Driver ZIP files are not committed to this repository; each entry links to the upstream release asset and keeps source/credits metadata.
+`drivers.json` is a catalog of Adreno driver packages from upstream GitHub releases. Driver ZIP files are not committed to this repository; each entry links to the upstream release asset and keeps source/credits metadata. The top-level array and the existing object fields are kept backward-compatible for every app consuming this catalog.
 
 Current catalog scope:
 
 - Turnip Mesa driver builds
-- K11MCH1 AdrenoTools-compatible Turnip packages
+- K11MCH1, StevenMXZ, MrPurple666, whitebelyash, s1mptom, and v3kt0r-87 builds
 - nihui Mesa Turnip Android builds with compatible ZIP layout
 - Auto, GMEM, SYSMEM, ADPKG, and A8xx variants when available
+- Selected Qualcomm packages that use an AdrenoTools-compatible emulator ZIP layout
 
-Qualcomm stock driver packages are intentionally excluded to keep the in-app catalog focused on custom Turnip drivers.
+Only archives verified to contain a directly loadable Vulkan shared library are listed. Magisk-only packages are excluded.
 
 The Android app reads:
 
