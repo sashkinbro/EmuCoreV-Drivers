@@ -11,7 +11,6 @@ Current catalog scope:
 - nihui Mesa Turnip Android builds with compatible ZIP layout
 - Auto, GMEM, SYSMEM, ADPKG, and A8xx variants when available
 - Selected Qualcomm packages that use an AdrenoTools-compatible emulator ZIP layout
-- Mesa PanVK packages for ARM Mali GPUs
 - WearyConcern1165 ExynosTools (Vortek) packages for Samsung Xclipse GPUs
 - crueter GameHub Adreno packages for Snapdragon 8 Elite
 - PojavLauncherTeam freedreno builds for older Adreno 6xx devices
