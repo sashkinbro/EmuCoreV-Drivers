@@ -1,5 +1,21 @@
 [
   {
+    "id": "mali-g57-t820-stock",
+    "name": "ARM Mali G57 (T820, r40p0)",
+    "version": "ARM Mali r40p0-01eac0 / Vulkan 1.4",
+    "tag": "mali-drivers-v1",
+    "family": "Mali",
+    "variant": "Stock",
+    "gpu": "Mali-G57 (T820)",
+    "description": "ARM proprietary Mali Vulkan driver (r40p0) extracted from the T820 firmware and packaged for the EmuCoreX custom driver loader. Verified to load on a Unisoc T820 / Mali-G57 device. Use only on the same GPU family.",
+    "recommended": false,
+    "publishedAt": "2026-09-29T08:14:27Z",
+    "downloadUrl": "https://github.com/sashkinbro/EmuCoreV-Drivers/releases/download/mali-drivers-v1/Mali_G57_T820_stock.zip",
+    "sourceUrl": "https://github.com/sashkinbro/EmuCoreV-Drivers/releases/tag/mali-drivers-v1",
+    "credits": "ARM / Unisoc vendor firmware",
+    "sizeBytes": 18828071
+  },
+  {
     "id": "exynos-tools-mdiex-nativo-v3-2",
     "name": "ExynosTools Nativo (Vortek v3.2)",
     "version": "Vortek v3.2",
