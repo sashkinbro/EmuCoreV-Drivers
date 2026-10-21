@@ -6,7 +6,7 @@ This repository hosts the shared GPU driver catalog used by EmuCoreV, EmuCoreC, 
 
 Current catalog scope:
 
-- MaliSX2 by ARMSX2 / bmdhacks for Mali Valhall v9/v11
+- MaliSX2 by ARMSX2 / bmdhacks for Mali Valhall v9/v11 and Bifrost v7 (G52)
 - ARM Mali G57 vendor packages and ExynosTools Xclipse packages
 - crueter GameHub and PojavLauncher Freedreno packages
 - Turnip Mesa driver builds
@@ -18,7 +18,7 @@ Current catalog scope:
 
 Archives must contain an ARM64 Vulkan shared library selectable by the existing app installers. Magisk-only modules and Linux container packages are excluded. Package validation does not establish runtime compatibility with every device, firmware, emulator, or game.
 
-The 2026-10-13 refresh contains **215 packages**: 33 verified local additions, seven newer upstream catalog entries retained, MaliSX2 0.1.4 added, and one removed nihui Edge entry whose upstream asset returns HTTP 404. The 174 retained base entries remain unchanged. The existing JSON array, field names, field types, IDs of retained entries, and catalog URL are unchanged. New builds are not marked recommended automatically, and the existing recommendation flags are preserved.
+The 2026-10-21 refresh contains **217 packages**: verified local additions including MaliSX2 0.2.1, 0.1.5, and 0.1.4, seven newer upstream catalog entries retained, and one removed nihui Edge entry whose upstream asset returns HTTP 404. The 174 retained base entries remain unchanged. The existing JSON array, field names, field types, IDs of retained entries, and catalog URL are unchanged. New builds are not marked recommended automatically, and the existing recommendation flags are preserved.
 
 Selected additions:
 
@@ -46,7 +46,12 @@ Read each package's GPU and Android requirements before installing it; current c
 The older zoerakk 800.51 archive was not added because its required private library names do not match the bundled files. No archives are modified or rehosted by this catalog.
 
 
-MaliSX2 0.1.4 links to the [official ARMSX2 / bmdhacks release](https://github.com/bmdhacks/malisx2/releases/tag/v0.1.4), without modifying or rehosting its archive. The ZIP SHA-256 is `35cec77da26ba9bc23531f423f34ba741f0fe82e212feb72ce0967023d6ee3d9`; it contains `meta.json` and the AArch64 Vulkan HAL `libvulkan_malisx2.so`. The driver is MIT licensed. Supported GPUs are G57/G68/G77/G78/G78AE (Valhall v9) and G615/G715 (Valhall v11); v9 requires Arm kbase r40p0 or newer, kernel interface 11.36+. Other Mali generations are unsupported. The entry remains unmarked as recommended. Apps must check GPU and kernel compatibility and report whether the custom driver actually loaded.
+MaliSX2 0.2.1, 0.1.5, and 0.1.4 link to the [official ARMSX2 / bmdhacks releases](https://github.com/bmdhacks/malisx2/releases), without modifying or rehosting their archives:
+- **MaliSX2 0.2.1**: ZIP SHA-256 `80166d8dc2f1051158966cafdf7d47e0866e13976fcc609e12c2e897695b3ae0`. Adds experimental preview support for Mali-G52 / G52 r1 (RK3566/RK3568, courtesy of @TheGammaSqueeze).
+- **MaliSX2 0.1.5**: ZIP SHA-256 `a3061b5135ef7bbecbdfc25b0db0b8370da8259d53f9daf3b4df3c79437d5cd1`. Optimized 4x4 texels per thread texture transfers for faster uploads.
+- **MaliSX2 0.1.4**: ZIP SHA-256 `35cec77da26ba9bc23531f423f34ba741f0fe82e212feb72ce0967023d6ee3d9`. Android 15 swapchain fix.
+
+Archives contain `meta.json` and the AArch64 Vulkan HAL `libvulkan_malisx2.so`. The driver is MIT licensed. Supported GPUs are G52 (experimental), G57/G68/G77/G78/G78AE (Valhall v9, requires Arm kbase r40p0 or newer, kernel interface 11.36+), and G615/G715 (Valhall v11). Other Mali generations are unsupported. The entries remain unmarked as recommended. Apps must check GPU and kernel compatibility and report whether the custom driver actually loaded.
 
 The Android app reads:
 

@@ -1,5 +1,58 @@
 [
   {
+    "id": "mali-sx2-0.2.1",
+    "name": "MaliSX2 0.2.1",
+    "version": "0.2.1",
+    "tag": "v0.2.1",
+    "family": "Mali",
+    "variant": "MaliSX2",
+    "gpu": "Mali Bifrost/Valhall (G52, G57, G68, G77, G78, G78AE, G615, G715)",
+    "description": "MaliSX2 Vulkan driver by ARMSX2 and bmdhacks for supported Mali GPUs. Adds experimental support for Mali-G52 / G52 r1 (RK3566/RK3568). G57/G68/G77/G78/G78AE require kbase r40p0 or newer (kernel interface 11.36+). G615/G715 are supported. Other Mali generations are unsupported. Device firmware and kernel compatibility still apply.",
+    "recommended": false,
+    "publishedAt": "2026-10-21T03:41:18Z",
+    "downloadUrl": "https://github.com/bmdhacks/malisx2/releases/download/v0.2.1/malisx2-0.2.1-7b57547cd1.zip",
+    "sourceUrl": "https://github.com/bmdhacks/malisx2/releases/tag/v0.2.1",
+    "credits": "ARMSX2 / bmdhacks / TheGammaSqueeze (MIT)",
+    "sizeBytes": 3904411,
+    "sha256": "80166d8dc2f1051158966cafdf7d47e0866e13976fcc609e12c2e897695b3ae0",
+    "supportedGpuModels": [
+      "G52",
+      "G57",
+      "G68",
+      "G77",
+      "G78",
+      "G78AE",
+      "G615",
+      "G715"
+    ]
+  },
+  {
+    "id": "mali-sx2-0.1.5",
+    "name": "MaliSX2 0.1.5",
+    "version": "0.1.5",
+    "tag": "v0.1.5",
+    "family": "Mali",
+    "variant": "MaliSX2",
+    "gpu": "Mali Valhall v9/v11 (G57, G68, G77, G78, G78AE, G615, G715)",
+    "description": "MaliSX2 Vulkan driver by ARMSX2 and bmdhacks for supported Valhall v9/v11 GPUs. Faster texture uploads (4x4 texels per thread). G57/G68/G77/G78/G78AE require kbase r40p0 or newer (kernel interface 11.36+). G615/G715 are supported. Other Mali generations are unsupported. Device firmware and kernel compatibility still apply.",
+    "recommended": false,
+    "publishedAt": "2026-10-14T19:28:15Z",
+    "downloadUrl": "https://github.com/bmdhacks/malisx2/releases/download/v0.1.5/malisx2-0.1.5-090e0c43a1.zip",
+    "sourceUrl": "https://github.com/bmdhacks/malisx2/releases/tag/v0.1.5",
+    "credits": "ARMSX2 / bmdhacks (MIT)",
+    "sizeBytes": 3787914,
+    "sha256": "a3061b5135ef7bbecbdfc25b0db0b8370da8259d53f9daf3b4df3c79437d5cd1",
+    "supportedGpuModels": [
+      "G57",
+      "G68",
+      "G77",
+      "G78",
+      "G78AE",
+      "G615",
+      "G715"
+    ]
+  },
+  {
     "id": "mali-sx2-0.1.4",
     "name": "MaliSX2 0.1.4",
     "version": "0.1.4",
