@@ -1,5 +1,32 @@
 [
   {
+    "id": "mali-sx2-0.3.0",
+    "name": "MaliSX2 0.3.0",
+    "version": "0.3.0",
+    "tag": "v0.3.0",
+    "family": "Mali",
+    "variant": "MaliSX2",
+    "gpu": "Mali Bifrost/Valhall (G52, G52 r1, G57, G68, G77, G78, G78AE, G615, G715)",
+    "description": "MaliSX2 Vulkan driver by ARMSX2 and bmdhacks for supported Mali GPUs. 0.3.0 adds hakuX (Xbox) support on Mali-G57 with dynamic rendering, timeline semaphores and validated render passes, stops advertising BCn/DXT textures and 4x/8x/16x multisampling (1x only), and makes Linux page flips wait for the GPU. ARMSX2 behaviour is unchanged, but the pipeline cache is rebuilt once after the update because the version is part of driverInfo. Dolphin does not start on 0.3.0; occlusion query pools arrive in 0.3.1. G52 / G52 r1 support is experimental. G57/G68/G77/G78/G78AE require kbase r40p0 or newer (kernel interface 11.36+). G615/G715 are tested. Other Mali generations are unsupported. Requires Android 10 (API 29) or newer. Device firmware and kernel compatibility still apply.",
+    "recommended": false,
+    "publishedAt": "2026-10-28T23:10:43Z",
+    "downloadUrl": "https://github.com/bmdhacks/malisx2/releases/download/v0.3.0/malisx2-0.3.0-c8d18effb1.zip",
+    "sourceUrl": "https://github.com/bmdhacks/malisx2/releases/tag/v0.3.0",
+    "credits": "ARMSX2 / bmdhacks / TheGammaSqueeze (MIT)",
+    "sizeBytes": 3733599,
+    "sha256": "e35b577f07ab4261ef7a08e17df2e1477910fed4e8e4b0e70268c57d0dde7c74",
+    "supportedGpuModels": [
+      "G52",
+      "G57",
+      "G68",
+      "G77",
+      "G78",
+      "G78AE",
+      "G615",
+      "G715"
+    ]
+  },
+  {
     "id": "mali-sx2-0.2.3",
     "name": "MaliSX2 0.2.3",
     "version": "0.2.3",
