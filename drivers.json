@@ -1,5 +1,33 @@
 [
   {
+    "id": "mali-sx2-0.3.1",
+    "name": "MaliSX2 0.3.1",
+    "version": "0.3.1",
+    "tag": "v0.3.1",
+    "family": "Mali",
+    "variant": "MaliSX2",
+    "gpu": "Mali Bifrost/Valhall (G52, G52 r1, G57, G68, G76, G77, G78, G78AE, G615, G715)",
+    "description": "MaliSX2 Vulkan driver by ARMSX2 and bmdhacks for supported Mali GPUs. 0.3.1 implements occlusion queries on all three GPU families, so Dolphin's Vulkan backend now opens; adds VkEvent, query pools and clip distances on the Mali-G615, skips provably invisible early depth tests, accepts the Mali-G76 on the Bifrost path, and ships a newer shader compiler that is a few percent faster on Dolphin. hakuX on the Mali-G615 is about 1.7x faster at 3x/4x internal resolution and about a third faster at 1x on the Mali-G57, with an unchanged picture. ARMSX2 behaviour is unchanged, but the pipeline cache is rebuilt once after the update because the version is part of driverInfo. MSAA is still reported as 1x only. G52 / G52 r1 are experimental and G76 is untested by the upstream authors. G57/G68/G77/G78/G78AE require kbase r40p0 or newer (kernel interface 11.36+). G615/G715 are tested. Other Mali generations are unsupported. Requires Android 10 (API 29) or newer. Device firmware and kernel compatibility still apply.",
+    "recommended": false,
+    "publishedAt": "2026-10-30T21:21:58Z",
+    "downloadUrl": "https://github.com/bmdhacks/malisx2/releases/download/v0.3.1/malisx2-0.3.1-8cdb0f68cd.zip",
+    "sourceUrl": "https://github.com/bmdhacks/malisx2/releases/tag/v0.3.1",
+    "credits": "ARMSX2 / bmdhacks / TheGammaSqueeze / Jessewb786 (MIT)",
+    "sizeBytes": 3770465,
+    "sha256": "34da06a52a0349c3e6ae07f7fb7d2dc5b76203c62b256b8d517e8df2509bb364",
+    "supportedGpuModels": [
+      "G52",
+      "G57",
+      "G68",
+      "G76",
+      "G77",
+      "G78",
+      "G78AE",
+      "G615",
+      "G715"
+    ]
+  },
+  {
     "id": "mali-sx2-0.3.0",
     "name": "MaliSX2 0.3.0",
     "version": "0.3.0",
