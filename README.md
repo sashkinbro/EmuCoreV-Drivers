@@ -12,6 +12,7 @@ Current catalog scope:
 - Turnip Mesa driver builds
 - K11MCH1, StevenMXZ, MrPurple666, whitebelyash, s1mptom, and v3kt0r-87 builds
 - The412Banner, WinNative-Emu, Vauzi-17, Balemuni, and Weab-chan community builds
+- faux123, AlexSanz0902 Turnip-Z, sherft2607 Retroid Pocket Duo, DroidDeck, and GameHub Rutabaga packages
 - nihui Mesa Turnip Android builds with compatible ZIP layout
 - Auto, GMEM, SYSMEM, ADPKG, and A8xx variants when available
 - Selected Qualcomm packages from StevenMXZ, K11MCH1, and zoerakk that use an AdrenoTools-compatible emulator ZIP layout
@@ -25,6 +26,43 @@ The 2026-10-29 update adds MaliSX2 0.3.0 and keeps 0.2.3 and 0.2.2, which were p
 The 2026-11-07 update adds MaliSX2 0.4.0, 0.3.3, and 0.3.2 to the 0.3.1 entry added on 2026-11-02; the catalog now lists **224 packages**. All four ZIPs (0.4.0, 0.3.3, 0.3.2, and 0.3.1) were downloaded and checked for release-asset size, SHA-256, ZIP layout (two safe entries, no path traversal), `meta.json` (`schemaVersion` 1, `minApi` 29, `libraryName` `libvulkan_malisx2.so`), and the AArch64 ELF header of `libvulkan_malisx2.so` (16.7-16.9 MiB, within the 64 MiB per-file client limit). The array shape, field names, field types, IDs of retained entries, and the catalog URL are unchanged, and the new entries are not marked recommended.
 
 The 2026-11-09 update adds **MaliSX2 0.4.1**, bringing the catalog to **225 packages**. The official release ZIP was downloaded and checked against the GitHub asset size and SHA-256, ZIP CRC and safe paths, client extraction limits, `meta.json` (`schemaVersion` 1, `minApi` 29, `libraryName` `libvulkan_malisx2.so`), and the AArch64 shared-library ELF header. Its two files include a 16,857,728-byte Vulkan library whose SHA-256 also matches the upstream release notes. Existing entries and recommendation flags are preserved; the new entry is not marked recommended.
+
+The subsequent **2026-11-09 Adreno expansion adds 4,707 packages**, bringing the catalog to **4,932 packages from 23 download repositories**: 4,864 Turnip, 51 Qualcomm, 12 Mali, four Vortek/Xclipse, and one Adreno/GameHub entry. The 225 existing entries, including MaliSX2 0.4.1, remain unchanged. No PanVK or other new Mali packages are included in this expansion.
+
+This expansion inventories all published releases returned by GitHub for the 19 Adreno build repositories below, plus the dedicated Rutabaga release in The412Banner/Nightlies. Banners-Turnip's 1,358 published releases were enumerated with GraphQL to avoid the REST API's first-1,000-results limit. Historic and automated builds are included, not just the latest release of each publisher. The scope is these verified sources as observed on 2026-11-09, not every driver repository on the internet.
+
+Of 4,732 not-yet-listed ZIP candidates, 4,711 passed package validation, 21 were rejected, and four passing archives were omitted as exact SHA-256 duplicates of retained packages. A further 1,586 Linux, Wayland, Magisk, or KernelSU assets were excluded by package type. The checks cover release-asset size, GitHub SHA-256 when available, ZIP CRC, safe unique paths, 256-entry / 64 MiB per-file / 128 MiB extracted client limits, the main-library selection algorithm shared by the inspected EmuCoreX/EmuCoreV/EmuCoreC installers, AArch64 shared-library format, Android Vulkan HAL `HMI` exports, metadata/library agreement when metadata is readable, and bundled private dependency names. Every new entry records the downloaded archive's SHA-256. One candidate was excluded by its compressed asset size before download; all other candidate archives were downloaded. Standalone Linux ICDs are excluded; combined DroidDeck archives are included only when the existing selectors choose their Android library.
+
+Some historical packs omit metadata or contain numeric strings or malformed metadata JSON. The current inspected installers select the Vulkan library without parsing `meta.json`, so those packages are assessed by the actual selected ELF rather than rejected only for metadata formatting. Android API requirements are copied when declared; otherwise the entry directs readers to the upstream release. Package validation is not a device or game test. GPU restrictions and firmware dependencies remain relevant, and no new entry is marked recommended.
+
+Known client limitation: the inspected clients identify installed packages by the upstream ZIP filename. Different releases named `turnip.zip` therefore share one installation name, and the UI can show another version as already downloaded. Remove the installed package before downloading a different release with the same filename. This also applies to matching filenames from different publishers; the catalog preserves the upstream download URLs and cannot rename those archives.
+
+| Source | Packages added in the Adreno expansion |
+| --- | ---: |
+| [The412Banner/Banners-Turnip](https://github.com/The412Banner/Banners-Turnip/releases) | 4,172 |
+| [StevenMXZ/Adreno-Tools-Drivers](https://github.com/StevenMXZ/Adreno-Tools-Drivers/releases) | 103 |
+| [Vauzi-17/710](https://github.com/Vauzi-17/710/releases) | 76 |
+| [Weab-chan/freedreno_turnip-CI](https://github.com/Weab-chan/freedreno_turnip-CI/releases) | 72 |
+| [MrPurple666/purple-turnip](https://github.com/MrPurple666/purple-turnip/releases) | 55 |
+| [whitebelyash/AdrenoToolsDrivers](https://github.com/whitebelyash/AdrenoToolsDrivers/releases) | 51 |
+| [K11MCH1/AdrenoToolsDrivers](https://github.com/K11MCH1/AdrenoToolsDrivers/releases) | 41 |
+| [WinNative-Emu/Drivers](https://github.com/WinNative-Emu/Drivers/releases) | 38 |
+| [v3kt0r-87/Mesa-Turnip-Builder](https://github.com/v3kt0r-87/Mesa-Turnip-Builder/releases) | 34 |
+| [PojavLauncherTeam/freedreno-builder](https://github.com/PojavLauncherTeam/freedreno-builder/releases) | 21 |
+| [faux123/turnip-faux123-driver](https://github.com/faux123/turnip-faux123-driver/releases) | 11 |
+| [Droid-Deck/Drivers](https://github.com/Droid-Deck/Drivers/releases) | 11 |
+| [sherft2607/turnip-adreno722-duo](https://github.com/sherft2607/turnip-adreno722-duo/releases) | 5 |
+| [AlexSanz0902/turnip-sd865-z](https://github.com/AlexSanz0902/turnip-sd865-z/releases) | 4 |
+| [The412Banner/Nightlies Rutabaga](https://github.com/The412Banner/Nightlies/releases/tag/rutabaga-drivers) | 4 |
+| [nihui/mesa-turnip-android-driver](https://github.com/nihui/mesa-turnip-android-driver/releases) | 4 |
+| [Balemuni/Balemunis-Aurora](https://github.com/Balemuni/Balemunis-Aurora/releases) | 2 |
+| [s1mptom/freedreno_turnip-CI](https://github.com/s1mptom/freedreno_turnip-CI/releases) | 2 |
+| [crueter/GameHub-8Elite-Drivers](https://github.com/crueter/GameHub-8Elite-Drivers/releases) | 1 |
+| [zoerakk/qualcomm-adreno-driver](https://github.com/zoerakk/qualcomm-adreno-driver/releases) | 0; remaining candidates duplicate another package or have mismatched private dependency names |
+
+Rejected candidates include Qualcomm packages whose renamed private libraries do not match `DT_NEEDED`, K11MCH1 v676 with a missing `vkbgsl.so`, one StevenMXZ package missing `libc++_shared.so`, two packages without an Android HAL entry point, one Magisk module, and an oversized early Pojav archive. Archives are not repaired, repackaged, or rehosted by this catalog.
+
+PanVK is a separate driver implementation from MaliSX2. The inspected Zenithblue 26.3.1 Android/AdrenoTools and FristOneRR 3.7.0 packages export the Android Vulkan HAL `HMI` and have standard Android library dependencies, so their packaging fits EmuCoreX's existing AdrenoTools loading path. The [FristOneRR wrapper](https://github.com/FristOneRR/FristOneRR-Panvk-Driver#emulators) is part of its Windows/Winlator setup; upstream also documents direct installation in emulators with a custom-driver option. These facts do not establish EmuCoreX rendering compatibility. Its MaliSX2-specific rendering policies do not automatically apply to PanVK, and Mali model/kernel compatibility is different. PanVK remains outside this catalog update pending actual emulator/device validation.
 
 Selected additions:
 
