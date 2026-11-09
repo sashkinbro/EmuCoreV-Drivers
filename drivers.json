@@ -1,5 +1,33 @@
 [
   {
+    "id": "mali-sx2-0.4.1",
+    "name": "MaliSX2 0.4.1",
+    "version": "0.4.1",
+    "tag": "v0.4.1",
+    "family": "Mali",
+    "variant": "MaliSX2",
+    "gpu": "Mali Bifrost/Valhall (G52, G52 r1, G76, G57, G68, G77, G78, G78AE, G615, G715)",
+    "description": "MaliSX2 Vulkan driver by ARMSX2 and bmdhacks for supported Mali GPUs. 0.4.1 adds Vita3K-Plus support and its memory mapping modes, fixes broken geometry in God of War Collection on the Mali-G52, and rejects stale shaders that could cause an out-of-memory crash after changing Vita3K settings. Vita3K-Plus gameplay has only been tested upstream on the Mali-G52; the required driver features passed tests on the Mali-G57 and G615, but gameplay there is not yet tested. ARMSX2 output is unchanged across the 22-dump accuracy corpus on the Mali-G57 and G615, with no slowdown found. The pipeline cache is rebuilt once after the update because the version is part of driverInfo. G52 / G52 r1 support is experimental and Mali-G76 is untested by the upstream authors. G57/G68/G77/G78/G78AE require kbase r40p0 or newer (kernel interface 11.36+). G615/G715 are supported. MSAA is not implemented and is reported as 1x, so an app that assumes 4x multisampling may not start. Other Mali generations are unsupported. Requires Android 10 (API 29) or newer. Device firmware and kernel compatibility still apply.",
+    "recommended": false,
+    "publishedAt": "2026-11-09T03:51:50Z",
+    "downloadUrl": "https://github.com/bmdhacks/malisx2/releases/download/v0.4.1/malisx2-0.4.1-a833123f35.zip",
+    "sourceUrl": "https://github.com/bmdhacks/malisx2/releases/tag/v0.4.1",
+    "credits": "ARMSX2 / bmdhacks / TheGammaSqueeze / pjperez / JoeysRetroHandhelds (MIT)",
+    "sizeBytes": 3828652,
+    "sha256": "feb44fcb0c459894cbf1b4e9403fd756db74f54e9b889fd652fbdc4043689034",
+    "supportedGpuModels": [
+      "G52",
+      "G76",
+      "G57",
+      "G68",
+      "G77",
+      "G78",
+      "G78AE",
+      "G615",
+      "G715"
+    ]
+  },
+  {
     "id": "mali-sx2-0.4.0",
     "name": "MaliSX2 0.4.0",
     "version": "0.4.0",
