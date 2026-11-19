@@ -1,29 +1,14 @@
 # EmuCoreV Drivers
 
-Shared GPU driver catalog used by EmuCoreV, EmuCoreC, EmuCoreR, EmuCoreP, and EmuCoreX.
+Shared GPU driver catalog for EmuCoreV, EmuCoreC, EmuCoreR, EmuCoreP, and EmuCoreX.
 
-## Current catalog
+**761 packages · 24 sources · Updated November 19, 2026**
 
-As of **2026-11-19**, `drivers.json` contains **761 packages** from **24 download repositories**:
+The catalog includes Turnip, Qualcomm, MaliSX2, and Xclipse packages. Each entry in [`drivers.json`](drivers.json) provides its download link, GPU requirements, description, and credits. Compatibility depends on the device, firmware, and emulator.
 
-| Catalog family | Packages |
-| --- | ---: |
-| Turnip | 691 |
-| Qualcomm | 51 |
-| Mali | 14 |
-| Vortek / Xclipse | 4 |
-| Adreno / GameHub | 1 |
-| **Total** | **761** |
+## Sources
 
-**The412Banner/Banners-Turnip: one selected package**, `Turnip-v27.0.0-20261109-r2-Banners-AIO.zip`. Future updates should replace this selection after validation, rather than import the automated release history or additional variants. The four Rutabaga packages from the separate `The412Banner/Nightlies` repository remain available.
-
-The catalog includes **MaliSX2 0.5.1** and **ARMSX2 Turnip axfl3-003**. Removed packages and previous catalog counts can be found in Git history.
-
-## Sources currently listed
-
-Counts below are calculated from the current `drivers.json` and refer to download repositories.
-
-| Source | Current packages |
+| Source | Packages |
 | --- | ---: |
 | [K11MCH1/AdrenoToolsDrivers](https://github.com/K11MCH1/AdrenoToolsDrivers/releases) | 196 |
 | [StevenMXZ/Adreno-Tools-Drivers](https://github.com/StevenMXZ/Adreno-Tools-Drivers/releases) | 115 |
@@ -51,31 +36,14 @@ Counts below are calculated from the current `drivers.json` and refer to downloa
 | [zoerakk/qualcomm-adreno-driver](https://github.com/zoerakk/qualcomm-adreno-driver/releases) | 1 |
 | **Total** | **761** |
 
-## GPU requirements and recommendations
+Banners-Turnip is limited to **one selected AIO package** (`v27.0.0-20261109-r2`). Future updates replace this selection instead of importing its automated build history. The separate Nightlies source contains four Rutabaga packages.
 
-- **ARMSX2 Turnip axfl3-003** targets Adreno 6xx/7xx and requires Android 10 (API 29) or newer. It includes fixes for Adreno 610/613. It is not an Adreno 8xx package.
-- **MaliSX2 0.5.1** supports Mali G31, G51, G52, G76, G57, G68, G77, G78, G78AE, G310, G510, G610, G710, G615 and G715, subject to device firmware and Arm Mali kernel driver compatibility. It requires Android 10 (API 29) or newer. Older MaliSX2 releases support fewer models; read each entry's requirements. MSAA is not implemented.
-- Qualcomm and Xclipse packages can require matching vendor firmware and private device libraries. GPU model and driver version are different things.
-- Experimental A8xx and device-specific variants are not universal upgrades. Read the package description and upstream release before installation.
-
-ARMSX2 recommends sources by GPU: its own Turnip for Adreno 6xx/7xx, StevenMXZ for Adreno 8xx, and MaliSX2 for supported Mali devices. These are ARMSX2 recommendations, not runtime validation for every EmuCore app. New catalog entries are not automatically marked `recommended`; the shared boolean cannot express GPU-specific recommendations.
-
-See [the ARMSX2 source review](docs/armsx2-source-review.md) for inspected code, source selection and deferred MdiEx packages. PanVK and MdiEx remain outside this catalog pending the relevant device and integration checks.
-
-## Package validation
-
-The catalog links to release assets and preserves source and credits metadata. Archives are not repaired or repackaged by this catalog. The JSON stays a top-level array; retained entry IDs, field names and types remain compatible with existing clients.
-
-Package checks cover asset size and SHA-256 when available, ZIP CRC, safe unique paths, the selected AArch64 Vulkan shared library, Android HAL entry points, and metadata/library agreement when metadata is readable. Client extraction limits are **256 entries**, **64 MiB per file**, and **128 MiB extracted**. Linux-only archives and Magisk/KernelSU-only modules are excluded.
-
-The selected Banners AIO, MaliSX2 0.5.1 and ARMSX2 Turnip axfl3-003 archives were downloaded and checked during the latest updates. Archive validation does not establish rendering correctness or performance on every device, emulator or game.
-
-Known client limitation: upstream ZIP filenames identify installed packages. Releases with the same filename, such as `turnip.zip`, can appear as the same installed driver. Remove the installed package before downloading another release with that filename.
+Recent additions: **MaliSX2 0.5.1** and **ARMSX2 Turnip axfl3-003** for Adreno 6xx/7xx. Package checks do not establish runtime compatibility; new entries are not automatically marked recommended.
 
 ## Catalog URL
-
-Apps read the same catalog URL:
 
 ```text
 https://raw.githubusercontent.com/sashkinbro/EmuCoreV-Drivers/main/drivers.json
 ```
+
+Previous changes are available in [Git history](https://github.com/sashkinbro/EmuCoreV-Drivers/commits/main/). Technical findings from the ARMSX2 comparison are in the [source review](docs/armsx2-source-review.md).
