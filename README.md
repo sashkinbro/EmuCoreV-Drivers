@@ -4,8 +4,11 @@ This repository hosts the shared GPU driver catalog used by EmuCoreV, EmuCoreC, 
 
 `drivers.json` is a catalog of Adreno, Mali, and Xclipse driver packages from upstream GitHub releases. Driver ZIP files are not committed to this repository; each entry links to the upstream release asset and keeps source/credits metadata. The top-level array and the existing object fields are kept backward-compatible for every app consuming this catalog.
 
+Current catalog (2026-11-19): **761 packages**. The412Banner/Banners-Turnip is limited to **one selected package**, `Turnip-v27.0.0-20261109-r2-Banners-AIO.zip`, from the previously verified catalog. Its upstream AIO designation covers multiple Adreno families; this is not a claim of runtime compatibility on every GPU. Future Banners updates should replace this selection after validation, rather than import its automated release history or additional variants. The separate The412Banner/Nightlies Rutabaga packages are unchanged.
+
 Current catalog scope:
 
+- ARMSX2 Turnip axfl3-003 for Adreno 6xx/7xx
 - MaliSX2 by ARMSX2 / bmdhacks for Mali Valhall v9/v11 and Bifrost v7 (G52)
 - ARM Mali G57 vendor packages and ExynosTools Xclipse packages
 - crueter GameHub and PojavLauncher Freedreno packages
@@ -26,6 +29,8 @@ The 2026-10-29 update adds MaliSX2 0.3.0 and keeps 0.2.3 and 0.2.2, which were p
 The 2026-11-07 update adds MaliSX2 0.4.0, 0.3.3, and 0.3.2 to the 0.3.1 entry added on 2026-11-02; the catalog now lists **224 packages**. All four ZIPs (0.4.0, 0.3.3, 0.3.2, and 0.3.1) were downloaded and checked for release-asset size, SHA-256, ZIP layout (two safe entries, no path traversal), `meta.json` (`schemaVersion` 1, `minApi` 29, `libraryName` `libvulkan_malisx2.so`), and the AArch64 ELF header of `libvulkan_malisx2.so` (16.7-16.9 MiB, within the 64 MiB per-file client limit). The array shape, field names, field types, IDs of retained entries, and the catalog URL are unchanged, and the new entries are not marked recommended.
 
 The 2026-11-09 update adds **MaliSX2 0.4.1**, bringing the catalog to **225 packages**. The official release ZIP was downloaded and checked against the GitHub asset size and SHA-256, ZIP CRC and safe paths, client extraction limits, `meta.json` (`schemaVersion` 1, `minApi` 29, `libraryName` `libvulkan_malisx2.so`), and the AArch64 shared-library ELF header. Its two files include a 16,857,728-byte Vulkan library whose SHA-256 also matches the upstream release notes. Existing entries and recommendation flags are preserved; the new entry is not marked recommended.
+
+The counts below describe historical updates before the 2026-11-19 Banners reduction; the current total is 761.
 
 The subsequent **2026-11-09 Adreno expansion adds 4,707 packages**, bringing the catalog to **4,932 packages from 23 download repositories**: 4,864 Turnip, 51 Qualcomm, 12 Mali, four Vortek/Xclipse, and one Adreno/GameHub entry. The 225 existing entries, including MaliSX2 0.4.1, remain unchanged. No PanVK or other new Mali packages are included in this expansion.
 
@@ -63,6 +68,10 @@ Known client limitation: the inspected clients identify installed packages by th
 The 2026-11-12 update adds **MaliSX2 0.5.0**, bringing the catalog to **4,933 packages**. The official release ZIP was downloaded and checked against the GitHub asset size (3,948,621 bytes) and SHA-256, ZIP CRC and safe paths, `meta.json` (`schemaVersion` 1, `minApi` 29, `libraryName` `libvulkan_malisx2.so`), and the AArch64 shared-library ELF header. Its 17,111,728-byte Vulkan library matches the SHA-256 in the upstream release notes. Existing entries and recommendation flags are preserved; the new entry is not marked recommended.
 
 The 2026-11-19 update adds **MaliSX2 0.5.1**, bringing the catalog to **4,934 packages**. The official Android release ZIP was downloaded and checked against the GitHub asset size (3,815,046 bytes) and SHA-256, ZIP CRC and safe unique paths, client extraction limits, `meta.json` (`schemaVersion` 1, `minApi` 29, `libraryName` `libvulkan_malisx2.so`), and the AArch64 shared-library ELF header. Its 11,486,128-byte Vulkan library matches the SHA-256 in the upstream release notes. The entry includes the declared supported Mali models and the 0.5.1 fixes for older GPUs. All 4,933 existing entries and their recommendation flags are preserved; the new entry is not marked recommended.
+
+The subsequent **2026-11-19 Banners reduction removes 4,174 packages** from The412Banner/Banners-Turnip and retains the single AIO package named above, bringing the catalog from 4,934 to **760 packages**. The retained ZIP was downloaded again and checked for its existing size and SHA-256, ZIP CRC, safe unique paths, client extraction limits, and the AArch64 Vulkan shared library with the Android HAL entry point. All 759 entries from other download repositories remain unchanged, including MaliSX2 0.5.1; retained IDs, fields, recommendation flags and catalog URL are unchanged. Removed entries remain available in Git history.
+
+The same-day ARMSX2 source review adds **ARMSX2 Turnip axfl3-003** for Adreno 6xx/7xx, bringing the current total to **761 packages**. The official Android ZIP (3,498,678 bytes) passes asset SHA-256, ZIP CRC, safe-path and extraction-limit checks; its 12,920,552-byte AArch64 Vulkan library matches the upstream SHA-256 and exports the Android HAL entry point. Its `meta.json` declares Android API 29. The entry records ARMSX2's GPU-specific source recommendation in its description but keeps `recommended: false`, since the shared catalog flag is not GPU-specific. See [the ARMSX2 source review](docs/armsx2-source-review.md) for source selection and deferred packages.
 
 Rejected candidates include Qualcomm packages whose renamed private libraries do not match `DT_NEEDED`, K11MCH1 v676 with a missing `vkbgsl.so`, one StevenMXZ package missing `libc++_shared.so`, two packages without an Android HAL entry point, one Magisk module, and an oversized early Pojav archive. Archives are not repaired, repackaged, or rehosted by this catalog.
 
