@@ -1,0 +1,65 @@
+name: Sync driver releases
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      full:
+        description: "Scan every release page of every source (slower)"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - scripts/*.py
+      - scripts/sources.json
+      - .github/workflows/sync-drivers.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-drivers
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sync catalog with upstream releases
+        id: sync
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FULL: ${{ inputs.full && '--full' || '' }}
+        run: python scripts/sync_drivers.py $FULL
+
+      # Also runs when one source had a network error but others changed.
+      - name: Commit and push if the catalog changed
+        if: ${{ !cancelled() && steps.sync.outputs.changed == 'true' }}
+        env:
+          COUNT: ${{ steps.sync.outputs.count }}
+          TITLE: ${{ steps.sync.outputs.title }}
+        run: |
+          if git diff --quiet -- drivers.json README.md scripts/sync-state.json; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          if [ "$COUNT" != "0" ]; then
+            msg="Add $TITLE to the driver catalog"
+          else
+            msg="Record checked driver packages in sync state"
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add drivers.json README.md scripts/sync-state.json
+          git commit -m "$msg" -m "Synced automatically from upstream GitHub releases (scripts/sources.json)."
+          git pull --rebase origin main
+          git push origin HEAD:main

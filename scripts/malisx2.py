@@ -1,47 +1,22 @@
-#!/usr/bin/env python3
-"""Sync MaliSX2 releases from bmdhacks/malisx2 into drivers.json.
+"""MaliSX2 (bmdhacks/malisx2) entries for the driver catalog.
 
-For every published GitHub release of bmdhacks/malisx2 that is not yet in the
-catalog, the script picks the Android driver ZIP (``malisx2-<ver>-<commit>.zip``),
-downloads it, checks it the same way manual additions were checked, and inserts
-a new ``mali-sx2-<ver>`` entry into the MaliSX2 block of ``drivers.json``
-(newest first). README.md counts are updated to match.
-
-Rules:
-* Drafts are always skipped. Pre-releases are skipped unless the catalog already
-  contains a pre-release of MaliSX2 (or ``--include-prereleases`` is given).
-* Existing entries are never modified; the script only adds missing releases.
-* Running it again with no new release changes nothing (idempotent).
-* A release whose ZIP fails a check is reported and skipped; the script then
-  exits with status 1 so the workflow run is marked as failed.
-
-Only the Python standard library is used. ``GITHUB_TOKEN`` is used for API
-requests when set (avoids the anonymous rate limit).
+Used by sync_drivers.py. For each published release the Android ZIP
+(``malisx2-<ver>-<commit>.zip``) is checked and a ``mali-sx2-<ver>`` entry is
+built with the supported Mali models, changes and contributors from the
+release notes. Entries go to the top of the MaliSX2 block (newest first).
 """
 
 from __future__ import annotations
 
-import argparse
-import datetime as dt
 import hashlib
 import io
 import json
-import os
 import re
 import struct
-import sys
-import urllib.request
 import zipfile
 from pathlib import Path
 
-UPSTREAM = "bmdhacks/malisx2"
-API = f"https://api.github.com/repos/{UPSTREAM}/releases?per_page=100"
 ID_PREFIX = "mali-sx2-"
-ROOT = Path(__file__).resolve().parent.parent
-CATALOG = ROOT / "drivers.json"
-README = ROOT / "README.md"
-USER_AGENT = "EmuCoreV-Drivers-sync"
-MAX_ZIP_BYTES = 64 * 1024 * 1024
 MAX_UNCOMPRESSED_BYTES = 256 * 1024 * 1024
 ELF_MACHINE_AARCH64 = 183
 LIBRARY_NAME = "libvulkan_malisx2.so"
@@ -49,23 +24,6 @@ LIBRARY_NAME = "libvulkan_malisx2.so"
 
 class CheckError(Exception):
     pass
-
-
-def http_get(url: str, accept: str = "application/vnd.github+json", api: bool = True) -> bytes:
-    headers = {"User-Agent": USER_AGENT, "Accept": accept}
-    token = os.environ.get("GITHUB_TOKEN")
-    if api and token:
-        headers["Authorization"] = f"Bearer {token}"
-    req = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(req, timeout=120) as resp:
-        data = resp.read(MAX_ZIP_BYTES + 1)
-    if len(data) > MAX_ZIP_BYTES:
-        raise CheckError(f"{url}: response larger than {MAX_ZIP_BYTES} bytes")
-    return data
-
-
-def fetch_releases() -> list[dict]:
-    return json.loads(http_get(API))
 
 
 def version_of(tag: str) -> str:
@@ -260,84 +218,29 @@ def insert_entry(catalog: list[dict], entry: dict) -> None:
     catalog.insert(idx[-1] + 1, entry)
 
 
-def update_readme(text: str, catalog: list[dict], added: list[str], today: dt.date) -> str:
-    total = len(catalog)
-    mali = sum(1 for e in catalog if is_malisx2(e))
-    date = f"{today:%B} {today.day}, {today.year}"
-    text = re.sub(r"\*\*[\d,]+ packages · (\d+) sources · Updated [^*]+\*\*",
-                  lambda m: f"**{total} packages · {m.group(1)} sources · Updated {date}**", text, count=1)
-    text = re.sub(r"(\| \[bmdhacks/malisx2\]\([^)]*\) \| )\d+( \|)", rf"\g<1>{mali}\g<2>", text, count=1)
-    text = re.sub(r"(\| \*\*Total\*\* \| \*\*)\d+(\*\* \|)", rf"\g<1>{total}\g<2>", text, count=1)
-    newest = max(added, key=lambda v: [int(x) if x.isdigit() else x for x in re.split(r"[.-]", v)])
-    text = re.sub(r"(Recent additions: [^\n]*?\*\*MaliSX2 )[^*]+(\*\*)", rf"\g<1>{newest}\g<2>", text, count=1)
-    return text
-
-
-def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--dry-run", action="store_true", help="report what would change, write nothing")
-    ap.add_argument("--include-prereleases", action="store_true")
-    args = ap.parse_args()
-
-    raw = CATALOG.read_text(encoding="utf-8")
-    catalog = json.loads(raw)
-    if json.dumps(catalog, indent=2, ensure_ascii=False) + "\n" != raw:
-        print("drivers.json is not in canonical format (indent 2, UTF-8, trailing newline); refusing to rewrite", file=sys.stderr)
-        return 2
-
+def new_entries(catalog: list[dict], releases: list[dict], download, include_pre: bool = False):
+    """Return (entries added to catalog, failures, warnings). Inserts in place."""
     known_tags = {e["tag"] for e in catalog if is_malisx2(e)}
     known_ids = {e["id"] for e in catalog}
-    releases = fetch_releases()
-    include_pre = args.include_prereleases or any(
-        r["prerelease"] and r["tag_name"] in known_tags for r in releases)
-
-    candidates = [r for r in releases
-                  if not r["draft"] and (include_pre or not r["prerelease"])
-                  and r["tag_name"] not in known_tags
-                  and f"{ID_PREFIX}{version_of(r['tag_name'])}" not in known_ids]
-    candidates.sort(key=lambda r: r["published_at"])
-
+    include_pre = include_pre or any(r["prerelease"] and r["tag_name"] in known_tags for r in releases)
+    candidates = sorted(
+        (r for r in releases
+         if not r["draft"] and (include_pre or not r["prerelease"])
+         and r["tag_name"] not in known_tags
+         and f"{ID_PREFIX}{version_of(r['tag_name'])}" not in known_ids),
+        key=lambda r: r["published_at"])
     added, failed, warnings = [], [], []
     for rel in candidates:
-        version = version_of(rel["tag_name"])
         try:
             asset = pick_asset(rel)
-            data = http_get(asset["browser_download_url"], accept="application/octet-stream", api=False)
+            data = download(asset["browser_download_url"])
             meta = check_zip(data, asset, rel.get("body") or "")
             prev = next((e for e in catalog if is_malisx2(e) and e["publishedAt"] < rel["published_at"]), None)
             entry, warns = build_entry(rel, asset, meta, prev)
         except (CheckError, OSError, ValueError, KeyError) as exc:
-            failed.append(f"{rel['tag_name']}: {exc}")
+            failed.append(f"bmdhacks/malisx2 {rel['tag_name']}: {exc}")
             continue
         insert_entry(catalog, entry)
-        added.append(version)
+        added.append(entry)
         warnings.extend(warns)
-        print(f"added {entry['id']}: {asset['name']} ({asset['size']} bytes, sha256 {entry['sha256']})")
-
-    for w in warnings:
-        print(f"warning: {w}")
-    for f in failed:
-        print(f"skipped {f}", file=sys.stderr)
-    if not added:
-        print("catalog is up to date" if not failed else "no release added")
-    elif not args.dry_run:
-        CATALOG.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
-        readme = README.read_text(encoding="utf-8")
-        README.write_text(update_readme(readme, catalog, added, dt.datetime.now(dt.timezone.utc).date()),
-                          encoding="utf-8", newline="\n")
-
-    summary = os.environ.get("GITHUB_STEP_SUMMARY")
-    if summary:
-        with open(summary, "a", encoding="utf-8") as fh:
-            fh.write("## MaliSX2 sync\n\n")
-            fh.write("".join(f"- added MaliSX2 {v}\n" for v in added) or "- nothing new\n")
-            fh.write("".join(f"- warning: {w}\n" for w in warnings))
-            fh.write("".join(f"- skipped {f}\n" for f in failed))
-    if added and "GITHUB_OUTPUT" in os.environ:
-        with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
-            fh.write(f"added={', '.join(added)}\n")
-    return 1 if failed else 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+    return added, failed, warnings
