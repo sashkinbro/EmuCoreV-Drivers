@@ -1,5 +1,22 @@
 [
   {
+    "id": "stevenmxz-v40-turnip-v27-0-0-r3-690c23c8",
+    "name": "Turnip v27.0.0-R3 (StevenMXZ)",
+    "version": "27.0.0",
+    "tag": "v40",
+    "family": "Turnip",
+    "variant": "Standard",
+    "gpu": "Adreno (see upstream GPU and firmware requirements)",
+    "description": "Turnip Vulkan driver package from StevenMXZ/Adreno-Tools-Drivers, upstream release v40. Mesa c5ef4bdfabf2e1a76d5e41ab8e5d75ddbc121275. Package declares Android API 28 or newer. GPU model, kernel and emulator compatibility still depend on the upstream release; not a universal replacement for all Adreno devices.",
+    "recommended": false,
+    "publishedAt": "2026-11-23T13:20:22Z",
+    "downloadUrl": "https://github.com/StevenMXZ/Adreno-Tools-Drivers/releases/download/v40/Turnip_v27.0.0-R3.zip",
+    "sourceUrl": "https://github.com/StevenMXZ/Adreno-Tools-Drivers/releases/tag/v40",
+    "credits": "StevenMXZ / Mesa / Freedreno contributors",
+    "sizeBytes": 2591380,
+    "sha256": "3a3da776b614550fe8822363bfe7bacca8bc22a5e743d221c196333a54a07add"
+  },
+  {
     "id": "armsx2-turnip-axfl3-004",
     "name": "ARMSX2 Turnip axfl3-004",
     "version": "27.0.0-devel",

@@ -2,7 +2,7 @@
 
 Shared GPU driver catalog for EmuCoreV, EmuCoreC, EmuCoreR, EmuCoreP, and EmuCoreX.
 
-**775 packages · 24 sources · Updated November 23, 2026**
+**776 packages · 24 sources · Updated November 23, 2026**
 
 The catalog includes Turnip, Qualcomm, MaliSX2, and Xclipse packages. Each entry in [`drivers.json`](drivers.json) provides its download link, GPU requirements, description, and credits. Compatibility depends on the device, firmware, and emulator.
 
@@ -11,7 +11,7 @@ The catalog includes Turnip, Qualcomm, MaliSX2, and Xclipse packages. Each entry
 | Source | Packages |
 | --- | ---: |
 | [K11MCH1/AdrenoToolsDrivers](https://github.com/K11MCH1/AdrenoToolsDrivers/releases) | 196 |
-| [StevenMXZ/Adreno-Tools-Drivers](https://github.com/StevenMXZ/Adreno-Tools-Drivers/releases) | 115 |
+| [StevenMXZ/Adreno-Tools-Drivers](https://github.com/StevenMXZ/Adreno-Tools-Drivers/releases) | 116 |
 | [Vauzi-17/710](https://github.com/Vauzi-17/710/releases) | 78 |
 | [Weab-chan/freedreno_turnip-CI](https://github.com/Weab-chan/freedreno_turnip-CI/releases) | 75 |
 | [whitebelyash/AdrenoToolsDrivers](https://github.com/whitebelyash/AdrenoToolsDrivers/releases) | 59 |
@@ -34,11 +34,11 @@ The catalog includes Turnip, Qualcomm, MaliSX2, and Xclipse packages. Each entry
 | [bmdhacks/armsx2-turnip](https://github.com/bmdhacks/armsx2-turnip/releases) | 2 |
 | [sashkinbro/EmuCoreV-Drivers](https://github.com/sashkinbro/EmuCoreV-Drivers/releases) | 1 |
 | [zoerakk/qualcomm-adreno-driver](https://github.com/zoerakk/qualcomm-adreno-driver/releases) | 1 |
-| **Total** | **775** |
+| **Total** | **776** |
 
 Banners-Turnip is limited to **one selected AIO package** (`v27.0.0-20261109-r2`). Future updates replace this selection instead of importing its automated build history. The separate Nightlies source contributes only its Rutabaga packages.
 
-Recent additions: **MaliSX2 0.6.1**. Package checks do not establish runtime compatibility; new entries are not automatically marked recommended.
+Recent additions: **Turnip v27.0.0-R3 (StevenMXZ)**. Package checks do not establish runtime compatibility; new entries are not automatically marked recommended.
 
 ## Automatic updates
 
