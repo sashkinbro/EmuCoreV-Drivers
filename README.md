@@ -2,7 +2,7 @@
 
 Shared GPU driver catalog for EmuCoreV, EmuCoreC, EmuCoreR, EmuCoreP, and EmuCoreX.
 
-**774 packages · 24 sources · Updated November 22, 2026**
+**775 packages · 24 sources · Updated November 23, 2026**
 
 The catalog includes Turnip, Qualcomm, MaliSX2, and Xclipse packages. Each entry in [`drivers.json`](drivers.json) provides its download link, GPU requirements, description, and credits. Compatibility depends on the device, firmware, and emulator.
 
@@ -20,7 +20,7 @@ The catalog includes Turnip, Qualcomm, MaliSX2, and Xclipse packages. Each entry
 | [v3kt0r-87/Mesa-Turnip-Builder](https://github.com/v3kt0r-87/Mesa-Turnip-Builder/releases) | 37 |
 | [PojavLauncherTeam/freedreno-builder](https://github.com/PojavLauncherTeam/freedreno-builder/releases) | 22 |
 | [nihui/mesa-turnip-android-driver](https://github.com/nihui/mesa-turnip-android-driver/releases) | 21 |
-| [bmdhacks/malisx2](https://github.com/bmdhacks/malisx2/releases) | 14 |
+| [bmdhacks/malisx2](https://github.com/bmdhacks/malisx2/releases) | 15 |
 | [Droid-Deck/Drivers](https://github.com/Droid-Deck/Drivers/releases) | 15 |
 | [faux123/turnip-faux123-driver](https://github.com/faux123/turnip-faux123-driver/releases) | 13 |
 | [sherft2607/turnip-adreno722-duo](https://github.com/sherft2607/turnip-adreno722-duo/releases) | 5 |
@@ -34,11 +34,11 @@ The catalog includes Turnip, Qualcomm, MaliSX2, and Xclipse packages. Each entry
 | [bmdhacks/armsx2-turnip](https://github.com/bmdhacks/armsx2-turnip/releases) | 2 |
 | [sashkinbro/EmuCoreV-Drivers](https://github.com/sashkinbro/EmuCoreV-Drivers/releases) | 1 |
 | [zoerakk/qualcomm-adreno-driver](https://github.com/zoerakk/qualcomm-adreno-driver/releases) | 1 |
-| **Total** | **774** |
+| **Total** | **775** |
 
 Banners-Turnip is limited to **one selected AIO package** (`v27.0.0-20261109-r2`). Future updates replace this selection instead of importing its automated build history. The separate Nightlies source contributes only its Rutabaga packages.
 
-Recent additions: **ARMSX2 Turnip axfl3-004**, **DD-Turnip-v0.9.1 (Droid-Deck)**, **Turnip-26.3.1-EMULATOR (v3kt0r-87)**, **mesa-turnip-android-26.3.1 (nihui)** and 8 more. Package checks do not establish runtime compatibility; new entries are not automatically marked recommended.
+Recent additions: **MaliSX2 0.6.1**. Package checks do not establish runtime compatibility; new entries are not automatically marked recommended.
 
 ## Automatic updates
 
