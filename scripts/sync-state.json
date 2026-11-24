@@ -9,6 +9,7 @@
     "https://github.com/MrPurple666/purple-turnip/releases/download/vturnip_23.0.0-R7_vk_1.3.238/turnip_23.0.0-R7_vk_1.3.238.zip": "not selected in the 2026-11-09 catalog review",
     "https://github.com/PojavLauncherTeam/freedreno-builder/releases/download/workflow_1/turnip.zip": "not selected in the 2026-11-09 catalog review",
     "https://github.com/StevenMXZ/Adreno-Tools-Drivers/releases/download/Turnip-PixelyIon-20251214-430a593/Turnip-PixelyIon-tu-newat-430a593.zip": "not selected in the 2026-11-09 catalog review",
+    "https://github.com/StevenMXZ/Adreno-Tools-Drivers/releases/download/v891.17/v891.17.zip": "vulkan.adr891.so needs private libraries that are not bundled: libmapperutils.so",
     "https://github.com/The412Banner/Nightlies/releases/download/rutabaga-drivers/Rutabaga-26.10.10.zip": "not selected in the 2026-11-09 catalog review",
     "https://github.com/WinNative-Emu/Drivers/releases/download/linux-v0.1.0/WN-Linux-Turnip-0.1.0-b_Axxx.zip": "not selected in the 2026-11-09 catalog review",
     "https://github.com/WinNative-Emu/Drivers/releases/download/linux-v0.1.0/WN-Linux-Turnip-0.1.0-p_Axxx.zip": "not selected in the 2026-11-09 catalog review",

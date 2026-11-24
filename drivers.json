@@ -1,5 +1,22 @@
 [
   {
+    "id": "stevenmxz-v886-6-v886-6-4a1721e1",
+    "name": "v886.6 (StevenMXZ)",
+    "version": "886.6",
+    "tag": "v886.6",
+    "family": "Qualcomm",
+    "variant": "Standard",
+    "gpu": "Adreno (see upstream GPU and firmware requirements)",
+    "description": "Qualcomm Vulkan driver package from StevenMXZ/Adreno-Tools-Drivers, upstream release v886.6. Package declares Android API 33 or newer. Qualcomm vendor binaries require compatible device firmware and vendor libraries. GPU model, kernel and emulator compatibility still depend on the upstream release; not a universal replacement for all Adreno devices.",
+    "recommended": false,
+    "publishedAt": "2026-11-24T18:06:42Z",
+    "downloadUrl": "https://github.com/StevenMXZ/Adreno-Tools-Drivers/releases/download/v886.6/v886.6.zip",
+    "sourceUrl": "https://github.com/StevenMXZ/Adreno-Tools-Drivers/releases/tag/v886.6",
+    "credits": "StevenMXZ / Qualcomm",
+    "sizeBytes": 15564003,
+    "sha256": "ecc47be4589c12a0e756f0f4a0c4f38436ad606d40924c783b3e0181bc5028a2"
+  },
+  {
     "id": "stevenmxz-v40-turnip-v27-0-0-r3-690c23c8",
     "name": "Turnip v27.0.0-R3 (StevenMXZ)",
     "version": "27.0.0",
