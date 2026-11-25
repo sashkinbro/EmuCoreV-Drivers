@@ -2,7 +2,7 @@
 
 Shared GPU driver catalog for EmuCoreV, EmuCoreC, EmuCoreR, EmuCoreP, and EmuCoreX.
 
-**777 packages · 24 sources · Updated November 24, 2026**
+**778 packages · 24 sources · Updated November 25, 2026**
 
 The catalog includes Turnip, Qualcomm, MaliSX2, and Xclipse packages. Each entry in [`drivers.json`](drivers.json) provides its download link, GPU requirements, description, and credits. Compatibility depends on the device, firmware, and emulator.
 
@@ -31,14 +31,14 @@ The catalog includes Turnip, Qualcomm, MaliSX2, and Xclipse packages. Each entry
 | [s1mptom/freedreno_turnip-CI](https://github.com/s1mptom/freedreno_turnip-CI/releases) | 3 |
 | [crueter/GameHub-8Elite-Drivers](https://github.com/crueter/GameHub-8Elite-Drivers/releases) | 2 |
 | [The412Banner/Banners-Turnip](https://github.com/The412Banner/Banners-Turnip/releases) | 1 |
-| [bmdhacks/armsx2-turnip](https://github.com/bmdhacks/armsx2-turnip/releases) | 2 |
+| [bmdhacks/armsx2-turnip](https://github.com/bmdhacks/armsx2-turnip/releases) | 3 |
 | [sashkinbro/EmuCoreV-Drivers](https://github.com/sashkinbro/EmuCoreV-Drivers/releases) | 1 |
 | [zoerakk/qualcomm-adreno-driver](https://github.com/zoerakk/qualcomm-adreno-driver/releases) | 1 |
-| **Total** | **777** |
+| **Total** | **778** |
 
 Banners-Turnip is limited to **one selected AIO package** (`v27.0.0-20261109-r2`). Future updates replace this selection instead of importing its automated build history. The separate Nightlies source contributes only its Rutabaga packages.
 
-Recent additions: **v886.6 (StevenMXZ)**. Package checks do not establish runtime compatibility; new entries are not automatically marked recommended.
+Recent additions: **ARMSX2 Turnip axfl3-005**. Package checks do not establish runtime compatibility; new entries are not automatically marked recommended.
 
 ## Automatic updates
 

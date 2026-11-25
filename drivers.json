@@ -1,5 +1,22 @@
 [
   {
+    "id": "armsx2-turnip-axfl3-005",
+    "name": "ARMSX2 Turnip axfl3-005",
+    "version": "27.0.0-devel",
+    "tag": "axfl3-005",
+    "family": "Turnip",
+    "variant": "ARMSX2",
+    "gpu": "Adreno 6xx/7xx (including Adreno 610 and 613); not Adreno 8xx",
+    "description": "Turnip Vulkan driver package from bmdhacks/armsx2-turnip, upstream release axfl3-005. Mesa 27.0.0-devel Turnip, ARMSX2 build axfl3-005 (driverInfo carries '(git-axfl3-005)'). Package declares Android API 29 or newer. ARMSX2 recommends this driver source for Adreno 6xx/7xx; this does not establish compatibility or a performance improvement in other emulators. GPU model, kernel and emulator compatibility still depend on the upstream release; not a universal replacement for all Adreno devices.",
+    "recommended": false,
+    "publishedAt": "2026-11-25T02:14:36Z",
+    "downloadUrl": "https://github.com/bmdhacks/armsx2-turnip/releases/download/axfl3-005/turnip-axfl3-005-android.zip",
+    "sourceUrl": "https://github.com/bmdhacks/armsx2-turnip/releases/tag/axfl3-005",
+    "credits": "ARMSX2 / bmdhacks / Mesa / Freedreno contributors",
+    "sizeBytes": 3516342,
+    "sha256": "36bbd5dac4e2671f8f4f52e8bfe1d191fbd247a28ace4430930f686d77e0ed10"
+  },
+  {
     "id": "stevenmxz-v886-6-v886-6-4a1721e1",
     "name": "v886.6 (StevenMXZ)",
     "version": "886.6",
