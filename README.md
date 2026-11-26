@@ -2,7 +2,7 @@
 
 Shared GPU driver catalog for EmuCoreV, EmuCoreC, EmuCoreR, EmuCoreP, and EmuCoreX.
 
-**778 packages · 24 sources · Updated November 25, 2026**
+**785 packages · 24 sources · Updated November 26, 2026**
 
 The catalog includes Turnip, Qualcomm, MaliSX2, and Xclipse packages. Each entry in [`drivers.json`](drivers.json) provides its download link, GPU requirements, description, and credits. Compatibility depends on the device, firmware, and emulator.
 
@@ -12,7 +12,7 @@ The catalog includes Turnip, Qualcomm, MaliSX2, and Xclipse packages. Each entry
 | --- | ---: |
 | [K11MCH1/AdrenoToolsDrivers](https://github.com/K11MCH1/AdrenoToolsDrivers/releases) | 196 |
 | [StevenMXZ/Adreno-Tools-Drivers](https://github.com/StevenMXZ/Adreno-Tools-Drivers/releases) | 117 |
-| [Vauzi-17/710](https://github.com/Vauzi-17/710/releases) | 78 |
+| [Vauzi-17/710](https://github.com/Vauzi-17/710/releases) | 83 |
 | [Weab-chan/freedreno_turnip-CI](https://github.com/Weab-chan/freedreno_turnip-CI/releases) | 75 |
 | [whitebelyash/AdrenoToolsDrivers](https://github.com/whitebelyash/AdrenoToolsDrivers/releases) | 59 |
 | [MrPurple666/purple-turnip](https://github.com/MrPurple666/purple-turnip/releases) | 57 |
@@ -21,7 +21,7 @@ The catalog includes Turnip, Qualcomm, MaliSX2, and Xclipse packages. Each entry
 | [PojavLauncherTeam/freedreno-builder](https://github.com/PojavLauncherTeam/freedreno-builder/releases) | 22 |
 | [nihui/mesa-turnip-android-driver](https://github.com/nihui/mesa-turnip-android-driver/releases) | 21 |
 | [bmdhacks/malisx2](https://github.com/bmdhacks/malisx2/releases) | 15 |
-| [Droid-Deck/Drivers](https://github.com/Droid-Deck/Drivers/releases) | 15 |
+| [Droid-Deck/Drivers](https://github.com/Droid-Deck/Drivers/releases) | 17 |
 | [faux123/turnip-faux123-driver](https://github.com/faux123/turnip-faux123-driver/releases) | 13 |
 | [sherft2607/turnip-adreno722-duo](https://github.com/sherft2607/turnip-adreno722-duo/releases) | 5 |
 | [AlexSanz0902/turnip-sd865-z](https://github.com/AlexSanz0902/turnip-sd865-z/releases) | 5 |
@@ -34,11 +34,11 @@ The catalog includes Turnip, Qualcomm, MaliSX2, and Xclipse packages. Each entry
 | [bmdhacks/armsx2-turnip](https://github.com/bmdhacks/armsx2-turnip/releases) | 3 |
 | [sashkinbro/EmuCoreV-Drivers](https://github.com/sashkinbro/EmuCoreV-Drivers/releases) | 1 |
 | [zoerakk/qualcomm-adreno-driver](https://github.com/zoerakk/qualcomm-adreno-driver/releases) | 1 |
-| **Total** | **778** |
+| **Total** | **785** |
 
 Banners-Turnip is limited to **one selected AIO package** (`v27.0.0-20261109-r2`). Future updates replace this selection instead of importing its automated build history. The separate Nightlies source contributes only its Rutabaga packages.
 
-Recent additions: **ARMSX2 Turnip axfl3-005**. Package checks do not establish runtime compatibility; new entries are not automatically marked recommended.
+Recent additions: **DD-Turnip-Emu-v1.0.0 (Droid-Deck)**, **DD-Turnip-v1.0.0 (Droid-Deck)**, **Turnip-710-720-722-v4.7-sw (Vauzi-17)**, **Turnip-710-720-722-v4.7-unified (Vauzi-17)** and 3 more. Package checks do not establish runtime compatibility; new entries are not automatically marked recommended.
 
 ## Automatic updates
 
